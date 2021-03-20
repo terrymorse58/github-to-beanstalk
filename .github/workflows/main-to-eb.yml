@@ -1,0 +1,19 @@
+name: Deploy to Elastic Beanstalk
+
+# Trigger deployment on `git push` to main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: EB deploy on git push main
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ckeckout branch main
+        uses: actions/checkout@v1
+
+      - name: Run build script
+        run: ./.github/scripts/build.sh

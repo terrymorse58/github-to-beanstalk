@@ -2,7 +2,6 @@
   "name": "github-to-beanstalk",
   "version": "1.0.0",
   "description": "demo of GitHub Action deploy to AWS Elastic Beanstalk",
-  "main": "dist/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,5 +10,8 @@
     "url": "https://github.com/terrymorse58/github-to-beanstalk.git"
   },
   "author": "Terry Morse",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "round-tofixed": "^1.2.4"
+  }
 }
