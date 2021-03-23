@@ -34,6 +34,7 @@ jobs:
           application_name:  getting-started-app
           environment_name: Gettingstartedapp-env
           version_label: ${{ github.sha }}
+          use_existing_version_if_available: false
           region: us-west-2
           deployment_package: deploy.zip
 
