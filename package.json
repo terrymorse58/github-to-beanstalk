@@ -1,6 +1,6 @@
 {
   "name": "github-to-beanstalk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "demo of GitHub Action deploy to AWS Elastic Beanstalk",
   "scripts": {
     "start": "node app.js"
@@ -11,6 +11,10 @@
   },
   "author": "Terry Morse",
   "license": "ISC",
+  "engines": {
+    "node": ">=15.11.0",
+    "npm": ">=7.6.0"
+  },
   "dependencies": {
     "round-tofixed": "^1.2.4"
   }
