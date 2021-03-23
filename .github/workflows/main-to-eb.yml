@@ -31,9 +31,9 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name:  getting-started-app
-          environment_name: Gettingstartedapp-env
-          version_label: 1.0.1
+          application_name:  github-eb-demo
+          environment_name: Githubebdemo-env
+          version_label: github-eb-demo-source
           use_existing_version_if_available: false
           region: us-west-2
           deployment_package: deploy.zip
