@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Ckeckout branch main
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Get package version
         id: package-version
