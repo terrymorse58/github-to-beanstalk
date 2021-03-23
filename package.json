@@ -1,10 +1,9 @@
 {
   "name": "github-to-beanstalk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "demo of GitHub Action deploy to AWS Elastic Beanstalk",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
