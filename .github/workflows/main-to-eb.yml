@@ -15,5 +15,25 @@ jobs:
       - name: Ckeckout branch main
         uses: actions/checkout@v1
 
-      - name: Run build script
+      - name: Get package version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.1.0
+        # access at ${{ steps.package-version.outputs.current-version }}
+
+      - name: Make build folder
         run: ./.github/scripts/build.sh
+
+      - name: Make deploy folder
+        run: ./.github/scripts/make-deploy.sh
+
+      - name: Beanstalk Deploy
+        uses: einaregilsson/beanstalk-deploy@v16
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name:  getting-started-app
+          environment_name: Gettingstartedapp-env
+          version_label: ${{ steps.package-version.outputs.current-version }}
+          region: us-west-2
+          deployment_package: deploy.zip
+
