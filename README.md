@@ -42,7 +42,7 @@ A GitHub Actions file that runs when the ***main*** branch is pushed. Steps:
 
 The deployed public site is:
 
-[GitHub to Elastic Beanstalk Demo site](http://githubebdemo.us-west-2.elasticbeanstalk.com)
+[githubebdemo.us-west-2.elasticbeanstalk.com](http://githubebdemo.us-west-2.elasticbeanstalk.com)
 
 ![Sample app](imgs/deployed-app.png)
 
