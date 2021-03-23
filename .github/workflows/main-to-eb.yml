@@ -33,7 +33,7 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name:  github-eb-demo
           environment_name: Githubebdemo-env
-          version_label: github-eb-demo-source
+          version_label: ${{ github.sha }}
           use_existing_version_if_available: false
           region: us-west-2
           deployment_package: deploy.zip
