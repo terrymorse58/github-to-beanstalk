@@ -21,7 +21,9 @@ jobs:
         # access at ${{ steps.package-version.outputs.current-version }}
 
       - name: Show version number
-        run: echo "Version number ${{ steps.package-version.outputs.current-version }}"
+        run: |
+          echo "Package version ${{ steps.package-version.outputs.current-version }}"
+          echo "Commit SHA: ${{ github.sha }}"
 
       - name: Make build folder
         run: ./.github/scripts/build.sh
