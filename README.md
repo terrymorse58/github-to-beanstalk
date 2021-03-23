@@ -47,13 +47,13 @@ The deployed public site is:
 ![Sample app](imgs/deployed-app.png)
 
 The sample is a node.js app, so seeing anything displayed means that the app is
-running. The app uses `roundToFixed` as a node module, so "roundToFixed was
-loaded means that the module was correctly loaded during the build process."
+running. The app uses `roundToFixed` as a node module, so *roundToFixed was
+loaded* means that the module was correctly loaded during the build process.
 
 ## Example screens
 
 ### GitHub repo Settings > Secrets
-The required AWS user credentials stored to repo's *Settings > Secrets* page:
+The AWS user credentials must be stored in the GitHub *Settings > Secrets* page:
 
 ![GitHub Settings > Secrets page](imgs/gh>settings>secrets.png)
 
