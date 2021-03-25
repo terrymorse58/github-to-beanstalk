@@ -44,7 +44,8 @@ const server = http.createServer(function (req,
     case '/images/306-200x200.jpg':
     case '/images/531-200x200.jpg':
     case '/images/784-200x200.jpg':
-      const relPath = 'placeholder-image.png';
+      // const relPath = 'placeholder-image.png';
+      const relPath = path.slice(1);
       res.writeHead(200);
       const image = fs.readFileSync(relPath);
       res.write(image);
