@@ -1,7 +1,7 @@
 // modified from Elastic Beanstalk sample Node.js app
 // https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/samples/nodejs.zip
 
-const port = Number(process.env.PORT) || 3000,
+const port = Number(process.env.PORT) || 80,
   http = require('http'),
   url = require('url'),
   fs = require('fs');
@@ -39,7 +39,7 @@ const server = http.createServer(function (req,
     case '/images/306-200x200.jpg':
     case '/images/531-200x200.jpg':
     case '/images/784-200x200.jpg':
-      const relPath = path.slice(1);
+      const relPath = 'placeholder-image.png';
       res.writeHead(200);
       const image = fs.readFileSync(relPath);
       res.write(image);
