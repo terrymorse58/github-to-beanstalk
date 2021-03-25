@@ -92,3 +92,8 @@ $ aws cloudfront create-invalidation \
     --distribution-id <get-from-aws-cloudfront-console> \
     --paths /index.html /images 
 ```
+
+## Serving Static Files
+
+Developer Guide - [Serving static files](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-staticfiles.html)
+
