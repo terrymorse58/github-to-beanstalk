@@ -13,8 +13,8 @@ fi
 #
 # copy files to build folder
 echo "copying files to build folder..."
-# cp -vr app.js index.html package.json placeholder-image.png images .ebextensions ./build
-cp -vr app.js index.html package.json images  ./build
+# cp -vr app.js index.html package.json images .ebextensions ./build
+cp -vr app.js index.html package.json placeholder-image.png images  ./build
 #
 # install production modules into build folder
 echo "installing modules into build folder"
