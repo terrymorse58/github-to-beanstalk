@@ -83,3 +83,12 @@ environment name, version name, region and filename as parameters, uploads
 the file to S3, creates a new version in Elastic Beanstalk, and then deploys
 that version to the environment. **Note:** Requires a zip file as the source.
 
+## CloudFront
+
+How to invalidate a CloudFront distribution when there is a new deployment:
+
+```shell
+$ aws cloudfront create-invalidation \
+    --distribution-id <get-from-aws-cloudfront-console> \
+    --paths /index.html /images 
+```
