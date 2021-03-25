@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Ckeckout branch main
+      - name: Checkout branch main
         uses: actions/checkout@v2
 
       - name: Get package version
