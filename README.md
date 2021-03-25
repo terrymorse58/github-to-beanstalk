@@ -44,7 +44,7 @@ The deployed public site is:
 
 [githubebdemo.us-west-2.elasticbeanstalk.com](http://githubebdemo.us-west-2.elasticbeanstalk.com)
 
-![Sample app](imgs/deployed-app.png)
+![Sample app](docs/deployed-app.png)
 
 The sample is a node.js app, so seeing anything displayed means that the app is
 running. The app uses `roundToFixed` as a node module, so *roundToFixed was
@@ -55,17 +55,17 @@ loaded* means that the module was correctly loaded during the build process.
 ### GitHub repo Settings > Secrets
 The AWS user credentials must be stored in the GitHub *Settings > Secrets* page:
 
-![GitHub Settings > Secrets page](imgs/gh>settings>secrets.png)
+![GitHub Settings > Secrets page](docs/gh>settings>secrets.png)
 
 ### GitHub repo > Actions > Summary
 After a deploy, the GitHub repo's actions > summary page:
 
-![github actions summary page](imgs/actions>summary.png)
+![github actions summary page](docs/actions>summary.png)
 
 ### Elastic Beanstalk status
 After a successful deploy, the Elastic Beanstalk > Environments page:
 
-![Elastic Beanstalk environments page](imgs/eb-success-status.png)
+![Elastic Beanstalk environments page](docs/eb-success-status.png)
 
 ## GitHub Actions used
 
