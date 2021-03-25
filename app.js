@@ -4,13 +4,18 @@
 const port = Number(process.env.PORT) || 80,
   http = require('http'),
   url = require('url'),
-  fs = require('fs');
+  fs = require('fs'),
+  os = require('os');
 
 // test that round-tofixed module exists and is accessible
 const roundToFixed = require('round-tofixed');
 
 const server = http.createServer(function (req,
                                            res) {
+
+  console.log('req.url:', req.url);
+  console.log('hostname:', os.hostname());
+  console.log('req.headers.host:', req.headers.host);
 
   if (req.method !== 'GET') {
     res.writeHead(400);
@@ -46,6 +51,10 @@ const server = http.createServer(function (req,
       res.end();
       return;
   }
+
+  res.writeHead(200);
+  res.write('do not understand: ' + path);
+  res.end();
 
 });
 
