@@ -1,7 +1,7 @@
 # github-to-beanstalk
 Deploy from GitHub to AWS Elastic Beanstalk - A Demo
 ---
-This is a demonstration of how to automatically deploy a sample Node.js app to AWS Elastic Beanstalk whenever a git branch is pushed to GitHub.
+This is a demonstration of how to automatically deploy a sample Node.js app to AWS Elastic Beanstalk whenever a git branch is pushed to GitHub. It also demonstrates how to use the CloudFront CDN for its static image files.
 ## Required items
 
 ### AWS user credentials
@@ -25,8 +25,14 @@ the tutorial
 
 ### .github/scripts/build.sh
 An app-specific bash script that populates the *build* folder contents by:
-1. copying *app.js, index.html, package.json* to build folder.
+1. copying source files to build folder.
+2. changing local `images/` URLs to CloudFront URLs
 2. running `npm install --only=production` to add node modules to build folder.
+
+### .github/scripts/build.config
+Contains the specific build instructions:
+1. BUILD_SOURCES - the source files to add to build folder
+2. SED_* = instructions to change the `images` URLs to CloudFront
 
 ### .github/scripts/make-deploy.sh
 A bash script that creates the `deploy.zip` file for uploading.
@@ -83,9 +89,23 @@ environment name, version name, region and filename as parameters, uploads
 the file to S3, creates a new version in Elastic Beanstalk, and then deploys
 that version to the environment. **Note:** Requires a zip file as the source.
 
+#### [AWS Cloudfront Invalidate Action](https://github.com/marketplace/actions/aws-cloudfront-invalidate-action) (16 stars)
+Create invalidation of CloudFront.
+
+```yaml
+- name: CloudFront Invalidate
+    uses: awact/cloudfront-action@master
+    env:
+      SOURCE_PATH: './images'
+      AWS_REGION: 'us-west-2'
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      DISTRIBUTION_ID: ${{ secrets.DISTRIBUTION_ID }}
+```
+
 ## CloudFront
 
-How to invalidate a CloudFront distribution when there is a new deployment:
+How to invalidate a CloudFront distribution when there is a new deployment, using aws command line:
 
 ```shell
 $ aws cloudfront create-invalidation \
