@@ -26,8 +26,10 @@ cp -vr $BUILD_SOURCES  ./build
 #
 echo "making edits to $SED_SOURCE_FILE..."
 cd build
-sed -i ".bak" -e "s/$SED_SEARCH_STRING/$SED_REPLACE_STRING/g" $SED_SOURCE_FILE
-rm $SED_SOURCE_FILE.bak
+sed -i.bak -e "s/$SED_SEARCH_STRING/$SED_REPLACE_STRING/g" $SED_SOURCE_FILE
+if test -f "$SED_SOURCE_FILE.bak"; then
+  rm $SED_SOURCE_FILE.bak
+fi
 cd ..
 #
 # install production node modules into build folder
