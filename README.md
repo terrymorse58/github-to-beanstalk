@@ -95,7 +95,7 @@ Create invalidation of CloudFront.
 ```yaml
 - name: CloudFront Invalidate
     uses: awact/cloudfront-action@master
-    env:
+    with:
       SOURCE_PATH: './images'
       AWS_REGION: 'us-west-2'
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
