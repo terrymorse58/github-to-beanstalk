@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Perform build of github-to-beanstalk
 #
+TIMESTAMP=$(date +%s)
+#
 # read config file
 #
 . .github/scripts/build.config
@@ -22,11 +24,14 @@ fi
 echo "copying files to build folder..."
 cp -vr $BUILD_SOURCES  ./build
 #
-# make edits to source file
+# make edits to source file(s)
 #
 echo "making edits to $SED_SOURCE_FILE..."
 cd build
-sed -i.bak -e "s/$SED_SEARCH_STRING/$SED_REPLACE_STRING/g" $SED_SOURCE_FILE
+sed -i.bak \
+  -e "s/$SED_SEARCH_STRING/$SED_REPLACE_STRING/g" \
+  -e "s/v={{vers}}/v=$TIMESTAMP/g" \
+  $SED_SOURCE_FILE
 if test -f "$SED_SOURCE_FILE.bak"; then
   rm $SED_SOURCE_FILE.bak
 fi

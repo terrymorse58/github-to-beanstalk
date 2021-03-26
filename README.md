@@ -1,7 +1,7 @@
 # github-to-beanstalk
 Deploy from GitHub to AWS Elastic Beanstalk - A Demo
 ---
-This is a demonstration of how to automatically deploy a sample Node.js app to AWS Elastic Beanstalk whenever a git branch is pushed to GitHub. It also demonstrates how to use the CloudFront CDN for its static image files.
+This is a demonstration of how to automatically deploy a sample Node.js app to AWS Elastic Beanstalk whenever a git branch is pushed to GitHub.
 ## Required items
 
 ### AWS user credentials
@@ -88,30 +88,6 @@ Deploy apps to AWS Elastic Beanstalk. It takes the application name,
 environment name, version name, region and filename as parameters, uploads
 the file to S3, creates a new version in Elastic Beanstalk, and then deploys
 that version to the environment. **Note:** Requires a zip file as the source.
-
-#### [AWS Cloudfront Invalidate Action](https://github.com/marketplace/actions/aws-cloudfront-invalidate-action) (16 stars)
-Create invalidation of CloudFront.
-
-```yaml
-- name: CloudFront Invalidate
-    uses: awact/cloudfront-action@master
-    with:
-      SOURCE_PATH: './images'
-      AWS_REGION: 'us-west-2'
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      DISTRIBUTION_ID: ${{ secrets.DISTRIBUTION_ID }}
-```
-
-## CloudFront
-
-How to invalidate a CloudFront distribution when there is a new deployment, using aws command line:
-
-```shell
-$ aws cloudfront create-invalidation \
-    --distribution-id <get-from-aws-cloudfront-console> \
-    --paths /index.html /images 
-```
 
 ## Serving Static Files
 
