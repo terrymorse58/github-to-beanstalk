@@ -42,8 +42,10 @@ jobs:
           region: us-west-2
           deployment_package: deploy.zip
 
-      - name: Invalidate CloudFront
+      - name: Add aws CLI
         uses: chrislennon/action-aws-cli@v1.1
+
+      - name: Invalidate CloudFront
         run: aws cloudfront create-invalidation \
           --distribution-id ${{ secrets.DISTRIBUTION_ID }} \
           -- paths /images
