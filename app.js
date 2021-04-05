@@ -41,16 +41,15 @@ const server = http.createServer(function (req,
       res.end();
       return;
 
-    case '/images/306-200x200.jpg':
-    case '/images/531-200x200.jpg':
-    case '/images/784-200x200.jpg':
-      // const relPath = 'placeholder-image.png';
-      const relPath = path.slice(1);
-      res.writeHead(200);
-      const image = fs.readFileSync(relPath);
-      res.write(image);
-      res.end();
-      return;
+    default:
+      if (path.slice(0,7) === '/images') {
+        const relPath = path.slice(1);
+        res.writeHead(200);
+        const image = fs.readFileSync(relPath);
+        res.write(image);
+        res.end();
+        return;
+      }
   }
 
   res.writeHead(200);
